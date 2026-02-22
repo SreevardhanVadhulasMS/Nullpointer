@@ -1,0 +1,531 @@
+/* ═══════════════════════════════
+   Aptitude.css
+═══════════════════════════════ */
+
+:root {
+  --bg:      #0d0d0d;
+  --surface: #141414;
+  --surface2:#1a1a1a;
+  --border:  #242424;
+  --text:    #f0f0f0;
+  --muted:   #666;
+  --muted2:  #999;
+  --radius:  12px;
+}
+
+/* ── PAGE ── */
+.apt-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 96px 48px 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.apt-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ── TABS ── */
+.apt-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.apt-tab {
+  flex: 1;
+  min-width: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 16px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--muted2);
+  font-size: 0.88rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.apt-tab i { font-size: 1rem; }
+.apt-tab:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+.apt-tab.active { font-weight: 600; }
+
+/* ── HEADER ── */
+.apt-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 28px 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  border-left: 3px solid var(--tc, #e07a5f);
+}
+
+.apt-header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.apt-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.apt-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.apt-sub {
+  font-size: 0.85rem;
+  color: var(--muted2);
+  margin: 4px 0 0;
+}
+
+/* Score card */
+.score-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: var(--surface2);
+  border: 1px solid;
+  border-radius: 12px;
+  padding: 16px 28px;
+  flex-shrink: 0;
+}
+
+.score-num {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
+.score-of {
+  font-size: 1rem;
+  color: var(--muted2);
+}
+
+.score-label {
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* ── PROGRESS BAR ── */
+.apt-progress-bar {
+  height: 5px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: -12px;
+}
+
+.apt-progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+.apt-progress-label {
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-align: right;
+}
+
+/* ── QUESTIONS LIST ── */
+.questions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── QUESTION CARD ── */
+.q-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.q-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--tc, #e07a5f);
+  opacity: 0.3;
+  transition: opacity 0.2s;
+}
+
+.q-card:hover::before { opacity: 0.7; }
+
+.q-card.correct { border-color: rgba(129,178,154,0.3); background: rgba(129,178,154,0.04); }
+.q-card.correct::before { background: #81b29a; opacity: 1; }
+.q-card.wrong   { border-color: rgba(224,122,95,0.3); background: rgba(224,122,95,0.04); }
+.q-card.wrong::before { background: #e07a5f; opacity: 1; }
+.q-card.unattempted::before { background: var(--muted); opacity: 0.5; }
+
+/* ── Q TOP ROW ── */
+.q-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.q-num {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 3px 10px;
+}
+
+.q-type-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 3px 10px;
+  border: 1px solid;
+}
+
+.q-type-badge.mcq {
+  color: #a09bc9;
+  border-color: rgba(160,155,201,0.3);
+  background: rgba(160,155,201,0.06);
+}
+
+.q-type-badge.numeric {
+  color: #5fb8c8;
+  border-color: rgba(95,184,200,0.3);
+  background: rgba(95,184,200,0.06);
+}
+
+.q-verdict {
+  margin-left: auto;
+  font-size: 0.78rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.v-correct { color: #81b29a; }
+.v-wrong   { color: #e07a5f; }
+.v-skip    { color: var(--muted); }
+
+/* ── QUESTION TEXT ── */
+.q-text {
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.7;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* ── OPTIONS ── */
+.opts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.opt-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: var(--muted2);
+  font-size: 0.9rem;
+  font-weight: 400;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.18s;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.opt-btn:hover:not(:disabled) {
+  color: var(--text);
+  border-color: #444;
+  background: rgba(255,255,255,0.04);
+}
+
+.opt-btn.selected { font-weight: 500; }
+
+.opt-btn.opt-correct {
+  border-color: rgba(129,178,154,0.5) !important;
+  background: rgba(129,178,154,0.1) !important;
+  color: #81b29a !important;
+}
+
+.opt-btn.opt-wrong {
+  border-color: rgba(224,122,95,0.5) !important;
+  background: rgba(224,122,95,0.1) !important;
+  color: #e07a5f !important;
+}
+
+.opt-label {
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.opt-btn.opt-correct .opt-label { color: #81b29a; }
+.opt-btn.opt-wrong   .opt-label { color: #e07a5f; }
+
+/* ── NUMERIC INPUT ── */
+.numeric-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.numeric-input {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 13px 18px;
+  color: var(--text);
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  min-width: 220px;
+  transition: border-color 0.2s;
+}
+
+.numeric-input:focus { border-color: #555; }
+.numeric-input::placeholder { color: var(--muted); }
+
+.numeric-input.ni-correct {
+  border-color: rgba(129,178,154,0.5);
+  background: rgba(129,178,154,0.06);
+  color: #81b29a;
+}
+
+.numeric-input.ni-wrong {
+  border-color: rgba(224,122,95,0.5);
+  background: rgba(224,122,95,0.06);
+  color: #e07a5f;
+}
+
+.correct-ans {
+  font-size: 0.85rem;
+  color: var(--muted2);
+}
+
+.correct-ans strong { color: #81b29a; }
+
+.correct-ans-text {
+  font-size: 0.85rem;
+  color: var(--muted2);
+  margin: 0;
+  padding-top: 4px;
+  border-top: 1px solid var(--border);
+}
+
+/* ── ACTION BUTTONS ── */
+.apt-actions {
+  display: flex;
+  justify-content: center;
+  padding: 8px 0;
+}
+
+.apt-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 48px;
+  border-radius: 12px;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: filter 0.2s, transform 0.2s;
+}
+
+.apt-submit-btn:hover { filter: brightness(1.1); transform: scale(1.02); }
+.apt-submit-btn i { font-size: 1.1rem; }
+
+.result-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.result-summary {
+  display: flex;
+  gap: 32px;
+  padding: 20px 40px;
+  background: var(--surface);
+  border: 1px solid;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.result-summary span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.result-summary i { font-size: 1.1rem; }
+
+.apt-reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 32px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted2);
+  font-size: 0.92rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.apt-reset-btn:hover { color: var(--text); border-color: #444; }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 4px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .apt-page { padding: 88px 18px 80px; }
+  .opts-grid { grid-template-columns: 1fr; }
+  .apt-tab { min-width: unset; font-size: 0.8rem; padding: 10px 12px; }
+  .apt-header { flex-direction: column; align-items: flex-start; padding: 20px; }
+  .result-summary { flex-direction: column; gap: 12px; padding: 16px 24px; }
+}
+
+@media (max-width: 480px) {
+  .apt-tabs { flex-direction: column; }
+  .apt-tab { width: 100%; }
+  .q-card { padding: 18px 16px; }
+  .q-text { font-size: 0.94rem; }
+  .opt-btn { font-size: 0.84rem; }
+}
+
+/* ── CHECK ANSWER BUTTON (per question) ── */
+.q-check-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 4px;
+  border-top: 1px solid var(--border);
+}
+
+.check-ans-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 22px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: var(--muted2);
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.18s;
+  letter-spacing: 0.02em;
+}
+
+.check-ans-btn:not(:disabled):hover {
+  background: rgba(255,255,255,0.04);
+}
+
+.check-ans-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.check-ans-btn i { font-size: 1rem; }
+
+.check-hint {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ── SUBMIT ROW ── */
+.submit-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.checked-count {
+  font-size: 0.88rem;
+  color: var(--muted2);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.checked-count i { color: #81b29a; }

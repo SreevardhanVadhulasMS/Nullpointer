@@ -1,0 +1,127 @@
+/* =========================================================
+   ADVANTAGES — SLIDE OVER HERO SECTION
+   ========================================================= */
+.advantages {
+  position: relative;
+  z-index: 2;
+
+  min-height: 100vh;
+  padding: 120px 24px;
+
+  background: #0b0b0b;
+  color: white;
+
+  /* initial hidden state */
+  transform: translateY(120px);
+  opacity: 0;
+
+  transition:
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.6s ease;
+}
+
+/* becomes visible on scroll */
+.advantages.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* =========================================================
+   INNER WRAPPER
+   ========================================================= */
+.advantages-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.advantages-inner h2 {
+  font-size: clamp(32px, 5vw, 48px);
+  margin-bottom: 64px;
+}
+
+/* =========================================================
+   TRACK — DESKTOP = SIDE BY SIDE
+   ========================================================= */
+.advantages-track {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+}
+
+/* =========================================================
+   CARD
+   ========================================================= */
+.adv-card {
+  flex: 1;
+  max-width: 360px;
+
+  padding: 32px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.adv-card h3 {
+  color: #f7ba52;
+  margin-bottom: 12px;
+}
+
+.adv-card p {
+  font-size: 19px;        /* ⬅️ main fix */
+  line-height: 1.7;
+  color: #cbd5f5;
+}
+
+
+/* =========================================================
+   MOBILE — ONE CARD AT A TIME (HORIZONTAL SCROLL)
+   ========================================================= */
+@media (max-width: 768px) {
+  .advantages {
+    padding: 72px 16px;
+  }
+
+  .advantages-track {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    gap: 16px;
+    padding-bottom: 16px;
+  }
+
+  .adv-card {
+    min-width: 85%;
+    flex: none;
+
+    scroll-snap-align: center;
+  }
+
+  /* hide scrollbar */
+  .advantages-track::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* =========================================================
+   EXTRA SMALL DEVICES (PHONES)
+   ========================================================= */
+@media (max-width: 480px) {
+  .advantages {
+    padding: 56px 14px;
+    transform: translateY(60px);
+  }
+
+  .advantages-inner h2 {
+    font-size: 26px;
+    margin-bottom: 40px;
+  }
+
+  .adv-card {
+    padding: 20px;
+  }
+}

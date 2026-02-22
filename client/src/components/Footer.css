@@ -1,0 +1,46 @@
+.footer {
+  background: #0a0a0a;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 32px 20px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+
+  font-size: 14px;
+}
+
+/* Left text */
+.footer-text {
+  color: #9ca3af;
+  margin: 0;
+}
+
+/* Contact link — looks like text, behaves like link */
+.footer-contact {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.footer-contact:hover {
+  opacity: 1;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}

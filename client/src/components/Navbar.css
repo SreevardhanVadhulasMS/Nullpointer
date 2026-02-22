@@ -1,0 +1,139 @@
+/* =========================================================
+   NAVBAR WRAPPER — FLOATING GLASS BAND
+   ========================================================= */
+.navbar-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+
+  width: 100%;
+  height: 84px;
+
+  /* Neutral dark glass */
+  background: linear-gradient(
+    to bottom,
+    rgba(18, 18, 18, 0.72),
+    rgba(10, 10, 10, 0.58)
+  );
+
+  backdrop-filter: blur(26px) saturate(110%);
+  -webkit-backdrop-filter: blur(26px) saturate(110%);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 10px 30px rgba(0, 0, 0, 0.55);
+}
+
+/* =========================================================
+   INNER NAVBAR
+   ========================================================= */
+.navbar {
+  height: 100%;
+  padding: 0 clamp(24px, 6vw, 76px);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* =========================================================
+   LOGO — <NullPointer>
+   ========================================================= */
+.logo-text {
+  font-family: "Outfit", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+  gap: 2px;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+.logo-bracket {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1;
+  color: #f7ba52;
+
+  text-shadow:
+    0 0 6px rgba(247, 186, 82, 0.55),
+    0 0 12px rgba(247, 186, 82, 0.35);
+}
+
+/* =========================================================
+   NAV LINKS
+   ========================================================= */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 42px;
+}
+
+.navbar-right a {
+  text-decoration: none;
+  color: #e5e7eb;
+  font-size: 17px;
+  font-weight: 500;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.navbar-right a:hover {
+  opacity: 1;
+}
+
+/* =========================================================
+   JOIN BUTTON
+   ========================================================= */
+.join-btn {
+  padding: 12px 26px;
+  font-size: 17px;
+  font-weight: 700;
+
+  background: linear-gradient(135deg, #f7bb53, #f3c743);
+  color: #020617;
+
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+
+  transition: filter 0.2s ease;
+}
+
+.join-btn:hover {
+  filter: brightness(1.08);
+}
+
+/* =========================================================
+   MOBILE SAFETY
+   ========================================================= */
+@media (max-width: 768px) {
+  .navbar-right a {
+    display: none;
+  }
+}
+@media (max-width: 640px) {
+  .navbar-wrapper {
+    height: 72px;
+  }
+
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .logo-text {
+    font-size: 22px;
+  }
+
+  .join-btn {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+}

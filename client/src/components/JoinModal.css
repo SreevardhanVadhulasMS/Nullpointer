@@ -1,0 +1,146 @@
+.x-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.x-modal {
+  width: min(600px, 94%);
+  background: #000;
+  border-radius: 16px;
+  padding: 32px 40px 40px;
+  color: #fff;
+  position: relative;
+}
+
+.x-close {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* ===== TITLE ===== */
+.x-title {
+  font-size: 31px;
+  font-weight: 700;
+  margin-bottom: 32px;
+  text-align: center;
+  width: 100%;
+}
+
+/* Orange dot accent */
+.np-dot {
+  color: #f59e0b; /* NullPointer accent */
+}
+
+/* ===== BUTTONS ===== */
+.x-btn {
+  width: 100%;
+  border-radius: 999px;
+  padding: 14px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-bottom: 14px;
+  border: none;
+}
+
+.x-btn.google {
+  background: #fff;
+  color: #000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.x-btn.primary {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+}
+
+.x-btn.secondary {
+  background: transparent;
+  border: 1px solid #333;
+  color: #fff;
+}
+
+/* ===== GOOGLE BUTTON CONTENT ===== */
+.google-text {
+  flex: 1;
+  text-align: left;
+  font-size: 13px;
+}
+
+.google-text span {
+  color: #555;
+  font-size: 12px;
+}
+
+.google img {
+  width: 18px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+/* ===== DIVIDER ===== */
+.x-divider {
+  display: flex;
+  align-items: center;
+  margin: 18px 0;
+}
+
+.x-divider::before,
+.x-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #333;
+}
+
+.x-divider span {
+  padding: 0 12px;
+  color: #777;
+  font-size: 14px;
+}
+
+/* ===== INPUT ===== */
+.x-input {
+  width: 100%;
+  background: #000;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 16px;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 18px;
+}
+
+/* ===== FOOTER ===== */
+.x-footer {
+  margin-top: 32px;
+  color: #777;
+  font-size: 14px;
+}
+
+.x-footer span {
+  color: #1d9bf0;
+  cursor: pointer;
+}
